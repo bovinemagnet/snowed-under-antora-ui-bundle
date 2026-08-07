@@ -19,9 +19,9 @@
     "browserify": "~17.0",
     "cssnano": "~5.1",
     "eslint": "~8.57",
-    "eslint-config-standard": "~16.0",
+    "eslint-config-standard": "~17.1",
     "eslint-plugin-import": "~2.29",
-    "eslint-plugin-node": "~11.1",
+    "eslint-plugin-n": "~16.6",
     "eslint-plugin-promise": "~6.1",
     "fancy-log": "~2.0",
     "fs-extra": "~11.2",
@@ -45,8 +45,8 @@
     "prettier-eslint": "~15.0",
     "require-directory": "~2.1",
     "require-from-string": "~2.0",
-    "stylelint": "~14.16",
-    "stylelint-config-standard": "~29.0",
+    "stylelint": "~13.13",
+    "stylelint-config-standard": "~22.0",
     "vinyl-fs": "~3.0"
   }
 }

@@ -31,6 +31,18 @@ The bundle lands at `build/ui-bundle.zip`.
 
 == Point the playbook at it
 
+Against a published release -- no local build needed:
+
+[,yaml]
+----
+ui:
+  bundle:
+    url: https://github.com/bovinemagnet/snowed-under-antora-ui-bundle/releases/latest/download/ui-bundle.zip
+----
+
+`releases/latest/download/…` always resolves to the newest release. Pin a version by swapping `latest`
+for `download/v1.2.0`. Against a local build instead:
+
 [,yaml]
 ----
 ui:
@@ -38,6 +50,21 @@ ui:
     url: ./ui/build/ui-bundle.zip
     snapshot: true
 ----
+
+== Cut a release
+
+Releases are built by GitHub Actions (`.github/workflows/release.yml`) whenever a `v*` tag is pushed. The
+workflow installs with `npm ci`, runs `gulp bundle`, and attaches `ui-bundle.zip` to a new release with
+generated notes.
+
+[,console]
+----
+$ npm version 1.2.0        # bumps package.json and creates the v1.2.0 tag
+$ git push --follow-tags
+----
+
+The tag must match `version` in `package.json` -- the workflow fails early if they disagree, so bump the
+version rather than tagging by hand.
 
 == Configure the branding
 
@@ -141,9 +168,9 @@ Two deliberate changes from upstream:
 * The Roboto `@fontsource` packages are dropped in favour of Google Fonts links in
   `partials/head-styles.hbs`.
 
-Known rough edges inherited from the fork: `npx gulp lint` fails because upstream's `.eslintrc` and
-`.stylelintrc` were not vendored, and `npm ci` fails on a peer conflict between
-`eslint-config-standard@~16` and `eslint@~8.57`. Use `npm install`.
+The lint toolchain is pinned by the abandoned `gulp-stylelint@13`, which peers `stylelint@^13`; the
+stylelint packages are held at that major so `npm ci` resolves without `--legacy-peer-deps`. Upstream's
+`.eslintrc` and `.stylelintrc` were never vendored, so `npx gulp lint` still fails for want of a config.
 
 == Copyright and licence
 
