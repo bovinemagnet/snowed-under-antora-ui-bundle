@@ -44,6 +44,11 @@ There is no test suite.
 `.stylelintrc` were not vendored with the fork. Either add the config files or don't run the task; don't
 assume lint failures indicate a problem with the source.
 
+**Don't bump the stylelint packages.** `gulp-stylelint` is abandoned at 13.0.0 and peers `stylelint@^13`,
+so `stylelint` and `stylelint-config-standard` are deliberately held at 13.x/22.x. Raising either
+reintroduces a peer conflict that breaks `npm ci`, and CI installs with plain `npm ci`. Moving to
+stylelint 14+ means replacing `gulp-stylelint` in `gulp.d/tasks/lint-css.js`, not just bumping versions.
+
 `LIVERELOAD=true` enables gulp-connect livereload during preview. `SOURCEMAPS=true` emits sourcemaps from
 a non-preview build.
 
@@ -133,6 +138,18 @@ there are written in **camelCase**, matching Antora's output rather than the pla
 
 If a template starts reading a new UI-model field, add it to that YAML or the preview will render blank
 where the real site renders content.
+
+## Releases
+
+`.github/workflows/release.yml` fires on `v*` tags: it verifies the tag matches `version` in
+`package.json` (failing early if not), runs `npm ci` and `gulp bundle`, then publishes a release with
+`ui-bundle.zip` attached via the `gh` CLI. Cut one with `npm version <x.y.z> && git push --follow-tags`.
+
+Consuming playbooks fetch `releases/latest/download/ui-bundle.zip` rather than building the theme, so a
+tag is what actually ships a change to downstream sites.
+
+The release step uses `$GITHUB_REF_NAME` as a shell variable, never `${{ }}` interpolation inside a
+`run:` block — keep it that way, since the latter would let a crafted tag name inject commands.
 
 ## Repository hygiene
 
