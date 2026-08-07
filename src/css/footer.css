@@ -1,0 +1,40 @@
+footer.footer {
+  background-color: var(--footer-background);
+  border-top: 1px solid var(--ui-line);
+  color: var(--footer-font-color);
+  font-size: calc(14 / var(--rem-base) * 1rem);
+  line-height: var(--footer-line-height);
+  padding: 3rem 1.5rem;
+}
+
+.footer-inner {
+  margin: 0 auto;
+  max-width: 64rem;
+}
+
+.footer p {
+  margin: 0.35rem 0;
+}
+
+.footer .footer-brand {
+  background: var(--ui-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: var(--display-font-family);
+  font-size: calc(20 / var(--rem-base) * 1rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.footer .footer-meta {
+  color: var(--ui-outline);
+  font-family: var(--label-font-family);
+  font-size: calc(11.5 / var(--rem-base) * 1rem);
+  margin-top: 1rem;
+}
+
+.footer a {
+  color: var(--footer-link-font-color);
+}

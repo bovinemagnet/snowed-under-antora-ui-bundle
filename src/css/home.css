@@ -1,0 +1,69 @@
+/* Home page — the one branded moment in the site.
+ * Applied to the page whose URL is the site start page (body.page-home).
+ * The eyebrow text above the title comes from --home-eyebrow, set by
+ * partials/head-styles.hbs from site.keys.home_eyebrow in the playbook. */
+
+.page-home .doc > h1.page:first-child {
+  color: var(--ui-on-surface);
+  font-size: calc(44 / var(--rem-base) * 1rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+  width: fit-content;
+}
+
+@media screen and (min-width: 769px) {
+  .page-home .doc > h1.page:first-child {
+    font-size: calc(60 / var(--rem-base) * 1rem);
+  }
+}
+
+.page-home .doc > h1.page:first-child::before {
+  color: var(--ui-primary);
+  content: var(--home-eyebrow, "Documentation");
+  display: block;
+  font-family: var(--label-font-family);
+  font-size: calc(11 / var(--rem-base) * 1rem);
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.page-home #preamble > .sectionbody > .paragraph:first-child > p {
+  color: var(--ui-on-surface-variant);
+  font-size: calc(20 / var(--rem-base) * 1rem);
+  line-height: 1.6;
+}
+
+/* Opt-in card grid: give a bullet list the "cards" role in AsciiDoc —
+ *   [.cards]
+ *   * *Feature name* — a short description of the feature
+ */
+.doc .ulist.cards > ul {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  list-style: none;
+  padding: 0;
+}
+
+.doc .ulist.cards > ul > li {
+  background: var(--ui-surface-low);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--ui-elevation);
+  margin: 0;
+  padding: 1.25rem;
+}
+
+.doc .ulist.cards > ul > li > p:first-child > strong:first-child {
+  color: var(--ui-on-surface);
+  display: block;
+  font-family: var(--display-font-family);
+  font-size: calc(17 / var(--rem-base) * 1rem);
+  margin-bottom: 0.35rem;
+}
+
+.doc .ulist.cards > ul > li p {
+  color: var(--ui-on-surface-variant);
+  font-size: calc(15 / var(--rem-base) * 1rem);
+}

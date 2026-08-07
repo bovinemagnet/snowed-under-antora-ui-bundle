@@ -1,0 +1,253 @@
+/* Documentation theme — design tokens
+ * Spring-green spine, tonal surface ladder, no 1px sectioning borders,
+ * Space Grotesk + Manrope. Dark is the native mode; light is opt-in via the
+ * navbar toggle. Restyle the whole site by editing the --ui-* blocks below;
+ * everything downstream is bound to them. */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ui-surface: #0a0b0d;
+  --ui-surface-lowest: #070809;
+  --ui-surface-low: #15181c;
+  --ui-surface-container: #1c2026;
+  --ui-surface-high: #252a31;
+  --ui-surface-highest: #2b3138;
+  --ui-surface-bright: #0e1013;
+
+  --ui-primary: #00e5a0;
+  --ui-primary-dim: #10b981;
+  --ui-on-primary: #04130d;
+  --ui-secondary: #10b981;
+  --ui-tertiary: #c6ff3d;
+  --ui-on-tertiary: #14210a;
+  --ui-error: #ff5d73;
+  --ui-on-error: #3a0510;
+  --ui-success: #10b981;
+  --ui-on-success: #04130d;
+  --ui-warning: #c6ff3d;
+  --ui-on-warning: #14210a;
+
+  --ui-on-surface: #f3f6f4;
+  --ui-on-surface-variant: #8b938f;
+  --ui-outline: #565d59;
+  --ui-outline-variant: #3a4047;
+  --ui-line: rgba(255, 255, 255, 0.07);
+  --ui-line-strong: rgba(255, 255, 255, 0.12);
+  --ui-accent-soft: rgba(0, 229, 160, 0.14);
+  --ui-accent-fill: #00e5a0;
+  --ui-volt: #c6ff3d;
+
+  --ui-gradient: linear-gradient(135deg, #00e5a0 0%, #10b981 100%);
+  --ui-glass-bg: rgba(14, 16, 19, 0.72);
+  --ui-elevation: none;
+  --ui-elevation-menu: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --ui-scrim: rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --ui-surface: #eaeeec;
+  --ui-surface-lowest: #ffffff;
+  --ui-surface-low: #f5f8f6;
+  --ui-surface-container: #eef2f0;
+  --ui-surface-high: #e5ebe7;
+  --ui-surface-highest: #dde4df;
+  --ui-surface-bright: #ffffff;
+
+  --ui-primary: #059669;
+  --ui-primary-dim: #047857;
+  --ui-on-primary: #042016;
+  --ui-secondary: #059669;
+  --ui-tertiary: #5b8c00;
+  --ui-on-tertiary: #ffffff;
+  --ui-error: #d4264a;
+  --ui-on-error: #ffffff;
+  --ui-success: #059669;
+  --ui-on-success: #ffffff;
+  --ui-warning: #5b8c00;
+  --ui-on-warning: #ffffff;
+
+  --ui-on-surface: #0c1410;
+  --ui-on-surface-variant: #5d655f;
+  --ui-outline: #9aa39d;
+  --ui-outline-variant: #d4dcd6;
+  --ui-line: rgba(11, 18, 15, 0.07);
+  --ui-line-strong: rgba(11, 18, 15, 0.12);
+  --ui-accent-soft: rgba(0, 195, 137, 0.14);
+  --ui-accent-fill: #00c389;
+  --ui-volt: #5b8c00;
+
+  --ui-gradient: linear-gradient(135deg, #00c389 0%, #059669 100%);
+  --ui-glass-bg: rgba(255, 255, 255, 0.78);
+  --ui-elevation: 0 4px 16px rgba(12, 20, 16, 0.1);
+  --ui-elevation-menu: 0 16px 40px rgba(12, 20, 16, 0.18);
+  --ui-scrim: rgba(12, 20, 16, 0.35);
+}
+
+/* ── Antora UI variables, bound to the theme tokens ────────────────── */
+:root {
+  --rem-base: 16;
+
+  --body-font-family: "Manrope", system-ui, -apple-system, sans-serif;
+  --display-font-family: "Space Grotesk", system-ui, sans-serif;
+  --monospace-font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --label-font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --icon-font-family: "Material Symbols Outlined";
+  --body-font-size: calc(16 / var(--rem-base) * 1rem);
+  --body-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
+  --body-font-size--print: calc(12 / var(--rem-base) * 1rem);
+  --body-line-height: 1.6;
+  --body-font-weight-bold: 700;
+  --monospace-font-weight-bold: 600;
+
+  --body-background: var(--ui-surface);
+  --body-font-color: var(--ui-on-surface);
+  --panel-background: var(--ui-surface-container);
+  --panel-border-color: var(--ui-outline-variant);
+  --color-white: #ffffff;
+
+  --link-font-color: var(--ui-primary);
+  --link_hover-font-color: var(--ui-tertiary);
+  --link_unresolved-font-color: var(--ui-error);
+
+  /* layout */
+  --navbar-height: 4rem;
+  --toolbar-height: 3rem;
+  --drawer-height: 2.75rem;
+  --body-top: var(--navbar-height);
+  --body-min-height: calc(100vh - var(--body-top));
+  --nav-width: 18.5rem;
+  --nav-height: calc(100vh - var(--navbar-height) - var(--toolbar-height));
+  --nav-height--desktop: calc(100vh - var(--navbar-height));
+  --nav-line-height: 1.5;
+  --nav-panel-menu-height: calc(100% - var(--drawer-height));
+  --nav-panel-explore-height: calc(100% - var(--drawer-height));
+  --toc-width: 14rem;
+  --toc-width--widescreen: 16rem;
+  --toc-line-height: 1.4;
+  --toc-top: calc(var(--body-top) + var(--toolbar-height) + 1.5rem);
+  --toc-height: calc(100vh - var(--toc-top) - 3.5rem);
+  --doc-font-size: calc(16 / var(--rem-base) * 1rem);
+  --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
+  --doc-line-height: 1.7;
+  --doc-margin: 0;
+  --doc-margin--desktop: 0 auto;
+  --doc-max-width: none;
+  --doc-max-width--desktop: 48rem;
+
+  /* navbar */
+  --navbar-background: var(--ui-glass-bg);
+  --navbar-font-color: var(--ui-on-surface);
+  --navbar-menu-font-color: var(--ui-on-surface-variant);
+  --navbar-menu-background: var(--ui-surface-container);
+  --navbar-menu-border-color: transparent;
+  --navbar-menu_hover-background: var(--ui-surface-high);
+  --navbar_hover-background: var(--ui-surface-high);
+  --navbar-button-background: var(--ui-surface-high);
+  --navbar-button-border-color: transparent;
+  --navbar-button-font-color: var(--ui-on-surface);
+
+  /* toolbar */
+  --toolbar-background: var(--ui-surface);
+  --toolbar-font-color: var(--ui-on-surface-variant);
+  --toolbar-border-color: var(--ui-line);
+  --toolbar-muted-color: var(--ui-outline);
+
+  /* nav */
+  --nav-background: var(--ui-surface-low);
+  --nav-secondary-background: var(--ui-surface-container);
+  --nav-border-color: var(--ui-line);
+  --nav-panel-divider-color: var(--ui-line);
+  --nav-heading-font-color: var(--ui-on-surface);
+  --nav-muted-color: var(--ui-on-surface-variant);
+
+  /* toc */
+  --toc-font-color: var(--ui-on-surface-variant);
+  --toc-heading-font-color: var(--ui-on-surface);
+  --toc-border-color: var(--ui-line-strong);
+
+  /* doc */
+  --doc-font-color: var(--ui-on-surface);
+  --heading-font-color: var(--ui-on-surface);
+  --heading-font-weight: 700;
+  --alt-heading-font-weight: 600;
+  --section-divider-color: var(--ui-line-strong);
+  --abstract-background: var(--ui-surface-low);
+  --abstract-border-color: var(--ui-primary);
+  --abstract-font-color: var(--ui-on-surface-variant);
+  --caption-font-color: var(--ui-on-surface-variant);
+  --caption-font-style: normal;
+  --caption-font-weight: 600;
+  --code-background: var(--ui-accent-soft);
+  --code-font-color: var(--ui-primary);
+  --pre-background: var(--ui-surface-low);
+  --pre-border-color: transparent;
+  --pre-annotation-font-color: var(--ui-on-surface-variant);
+  --example-background: var(--ui-surface-low);
+  --example-border-color: var(--ui-surface-high);
+  --sidebar-background: var(--ui-surface-low);
+  --quote-background: var(--ui-surface-low);
+  --quote-border-color: var(--ui-primary);
+  --quote-font-color: var(--ui-on-surface);
+  --quote-attribution-font-color: var(--ui-on-surface-variant);
+  --table-border-color: var(--ui-line);
+  --table-stripe-background: var(--ui-surface-low);
+  --table-footer-background: var(--ui-surface-container);
+  --kbd-background: var(--ui-surface-container);
+  --kbd-border-color: var(--ui-line-strong);
+  --admonition-background: var(--ui-surface-low);
+  --admonition-label-font-weight: 700;
+  --note-color: var(--ui-primary);
+  --note-on-color: var(--ui-on-primary);
+  --tip-color: var(--ui-success);
+  --tip-on-color: var(--ui-on-success);
+  --important-color: var(--ui-tertiary);
+  --important-on-color: var(--ui-on-tertiary);
+  --caution-color: var(--ui-warning);
+  --caution-on-color: var(--ui-on-warning);
+  --warning-color: var(--ui-error);
+  --warning-on-color: var(--ui-on-error);
+
+  /* footer */
+  --footer-background: var(--ui-surface-low);
+  --footer-font-color: var(--ui-on-surface-variant);
+  --footer-link-font-color: var(--ui-primary);
+  --footer-line-height: 1.6;
+
+  /* page versions */
+  --page-version-menu-background: var(--ui-surface-container);
+  --page-version-missing-font-color: var(--ui-outline);
+
+  /* scrollbars */
+  --scrollbar-track-color: var(--ui-surface);
+  --scrollbar-thumb-color: var(--ui-surface-highest);
+  --scrollbar_hover-thumb-color: var(--ui-outline-variant);
+
+  /* syntax highlighting */
+  --hljs-keyword: var(--ui-primary);
+  --hljs-type: var(--ui-secondary);
+  --hljs-var: var(--ui-tertiary);
+  --hljs-string: var(--ui-success);
+  --hljs-number: var(--ui-warning);
+  --hljs-comment: var(--ui-outline);
+  --hljs-remove: rgba(255, 93, 115, 0.18);
+  --hljs-addition: rgba(16, 185, 129, 0.18);
+
+  /* radii */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.125rem;
+  --radius-xl: 1.375rem;
+  --radius-full: 9999px;
+
+  /* stacking */
+  --z-index-doc: 1;
+  --z-index-nav: 2;
+  --z-index-toolbar: 3;
+  --z-index-page-version-menu: 4;
+  --z-index-navbar: 5;
+}

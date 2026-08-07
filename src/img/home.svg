@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" id="svg2">
+  <metadata id="metadata12">
+    <RDF>
+      <Work>
+        <format>image/svg+xml</format>
+        <type></type>
+        <title></title>
+      </Work>
+    </RDF>
+  </metadata>
+  <defs id="defs10">
+    <path-effect is_visible="true" id="path-effect4225" effect="spiro"></path-effect>
+    <path-effect effect="spiro" id="path-effect4221" is_visible="true"></path-effect>
+    <path-effect effect="spiro" id="path-effect4213" is_visible="true"></path-effect>
+    <path-effect is_visible="true" id="path-effect4209" effect="spiro"></path-effect>
+    <path-effect effect="spiro" id="path-effect4204" is_visible="true"></path-effect>
+    <path-effect is_visible="true" id="path-effect4191" effect="spiro"></path-effect>
+    <path-effect effect="spiro" id="path-effect4187" is_visible="true"></path-effect>
+    <path-effect effect="spiro" id="path-effect4183" is_visible="true"></path-effect>
+    <path-effect is_visible="true" id="path-effect4179" effect="spiro"></path-effect>
+    <path-effect effect="spiro" id="path-effect4173" is_visible="true"></path-effect>
+    <path-effect is_visible="true" id="path-effect4169" effect="spiro"></path-effect>
+    <path-effect effect="spiro" id="path-effect4165" is_visible="true"></path-effect>
+  </defs>
+  <namedview borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" id="namedview8" showgrid="false"></namedview>
+  <g transform="translate(0,-952.36218)" id="g4">
+    <path style="fill:#10b981;fill-rule:evenodd;stroke:#10b981;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" d="M 50.019531 13.576172 L 21.439453 39.115234 L 21.419922 86.460938 L 42.925781 86.460938 L 42.951172 61.294922 L 57.048828 61.294922 L 57.074219 86.460938 L 78.619141 86.460938 L 78.638672 39.150391 L 50.019531 13.576172 z " id="path4175" transform="translate(0,952.36218)"></path>
+    <path style="fill:#10b981;fill-rule:evenodd;stroke:#10b981;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" d="m 63.815035,25.903568 0,-9.217018 8.656932,0 -2e-6,16.95383 z" id="path4193" transform="translate(0,952.36218)"></path>
+    <path style="fill:none;fill-rule:evenodd;stroke:#10b981;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 21.43888,991.47783 -9.98234,8.92037" id="path4177"></path>
+    <path style="fill:none;fill-rule:evenodd;stroke:#10b981;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 88.58189,1000.3982 -9.94315,-8.88535" id="path4170"></path>
+  </g>
+</svg>

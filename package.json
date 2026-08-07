@@ -1,0 +1,52 @@
+{
+  "name": "snowed-under-production-green-theme",
+  "version": "0.0.0",
+  "description": "Snowed Under Production Green Theme — an Antora UI bundle. The consuming site supplies its own title and nav via site.title and site.keys",
+  "author": "Paul Snow",
+  "license": "MPL-2.0",
+  "private": true,
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "@asciidoctor/core": "~2.2",
+    "@vscode/gulp-vinyl-zip": "~2.5",
+    "autoprefixer": "~10.4",
+    "browser-pack-flat": "~3.4",
+    "browserify": "~17.0",
+    "cssnano": "~5.1",
+    "eslint": "~8.57",
+    "eslint-config-standard": "~16.0",
+    "eslint-plugin-import": "~2.29",
+    "eslint-plugin-node": "~11.1",
+    "eslint-plugin-promise": "~6.1",
+    "fancy-log": "~2.0",
+    "fs-extra": "~11.2",
+    "gulp": "~4.0",
+    "gulp-concat": "~2.6",
+    "gulp-connect": "~5.7",
+    "gulp-eslint": "~6.0",
+    "gulp-imagemin": "~7.1",
+    "gulp-postcss": "~9.0",
+    "gulp-stylelint": "~13.0",
+    "gulp-uglify": "~3.0",
+    "handlebars": "~4.7",
+    "highlight.js": "9.18.3",
+    "js-yaml": "~3.13",
+    "merge-stream": "~2.0",
+    "plugin-error": "~1.0",
+    "postcss-calc": "~8.2",
+    "postcss-custom-properties": "~12.1",
+    "postcss-import": "~14.1",
+    "postcss-url": "~10.1",
+    "prettier-eslint": "~15.0",
+    "require-directory": "~2.1",
+    "require-from-string": "~2.0",
+    "stylelint": "~14.16",
+    "stylelint-config-standard": "~29.0",
+    "vinyl-fs": "~3.0"
+  }
+}

@@ -1,0 +1,67 @@
+= Sample Project Documentation
+:description: Kitchen-sink preview page for this Antora UI
+:toclevels: 2
+
+This page exercises every block this UI styles, so a change to the theme can be checked in one place.
+It is fixture content only -- nothing here ships in the bundle.
+
+[.cards]
+* *Card grid* -- a bullet list given the `cards` role
+* *Admonitions* -- mono labels overlapping a tonal panel
+* *Code blocks* -- highlight.js mapped onto the theme palette
+* *Tables* -- striped rows with hairline rules
+
+== Typography and blocks
+
+Body copy is set in Manrope; headings in Space Grotesk with tight tracking.
+Inline code such as `SomeIdentifier` sits on a tonal chip, and links like https://antora.org[Antora] take the spring-green spine colour.
+
+NOTE: Admonition labels are mono pills that overlap the top edge of a tonal panel.
+
+TIP: Deeper emerald is reserved for tips and successful states.
+
+IMPORTANT: Volt green marks anything the reader must not miss.
+
+CAUTION: Volt marks anything the reader must slow down for.
+
+WARNING: Red matches the danger token.
+
+== Code
+
+[,js]
+----
+const bundle = await build({
+  src: 'src',
+  dest: 'public/_',
+})
+----
+
+== Tables
+
+[cols="1,2,3",options="header"]
+|===
+| Layer | Technology | Purpose
+
+| Templates
+| Handlebars
+| Page layouts and reusable partials
+
+| Styles
+| PostCSS
+| Custom-property tokens, preserved for runtime theming
+
+| Build
+| Gulp
+| Staging and packaging the bundle
+|===
+
+== Lists and quotes
+
+. Edit a file under `src/`
+. Watch the preview rebuild
+. Run `npx gulp bundle` when the result looks right
+
+[quote,Antora documentation]
+____
+A UI bundle is a ZIP archive that contains the HTML templates, CSS, JavaScript, images, and fonts a site needs.
+____

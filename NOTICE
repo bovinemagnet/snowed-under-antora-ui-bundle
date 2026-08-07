@@ -1,0 +1,18 @@
+Snowed Under Production Green Theme
+===================================
+
+Copyright (C) 2026-present Paul Snow.
+
+This work is a derivative of the Antora default UI:
+
+    https://gitlab.com/antora/antora-ui-default
+    Copyright (C) 2017-present OpenDevise Inc. and the Antora Project.
+
+Substantial portions of the templates, stylesheets, helpers and build tooling
+in this repository originate from that project and remain the copyright of
+their original authors. Modifications and additions made here are copyright
+the contributors to this repository.
+
+Both the original work and this derivative are licensed under the Mozilla
+Public License Version 2.0. See LICENSE for the full text, or obtain a copy at
+https://mozilla.org/MPL/2.0/.

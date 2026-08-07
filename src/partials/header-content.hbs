@@ -1,0 +1,35 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item brand" href="{{{or site.url siteRootPath}}}">
+        <span class="brand-mark">{{site.title}}</span>
+        {{#if site.keys.brandSuffix}}<span class="brand-suffix">{{site.keys.brandSuffix}}</span>{{/if}}
+      </a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        {{!-- Top nav comes from site.keys.nav_links in the playbook. Site-root paths
+              ('/…') are relativized; absolute URLs pass through untouched. With no
+              nav_links configured, fall back to one link per component. --}}
+        {{#if site.keys.navLinks}}
+        {{#each site.keys.navLinks}}
+        <a class="navbar-item{{#if this.external}} is-external{{/if}}" href="{{{relativize this.url}}}">{{this.text}}</a>
+        {{/each}}
+        {{else}}
+        {{#each site.components}}
+        <a class="navbar-item" href="{{{relativize ./url}}}">{{./title}}</a>
+        {{/each}}
+        {{/if}}
+        <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle light and dark theme">
+          <span class="icon icon-dark">dark_mode</span>
+          <span class="icon icon-light">light_mode</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,11 @@
+# Build output — both directories are what `gulp clean` removes
+build
+public
+
+# Dependencies
+node_modules
+
+# Logs and OS noise
+npm-debug.log*
+yarn-error.log*
+.DS_Store

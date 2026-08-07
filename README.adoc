@@ -1,0 +1,157 @@
+= Snowed Under Production Green Theme
+:url-antora: https://antora.org
+:url-upstream: https://gitlab.com/antora/antora-ui-default
+:url-site-keys: https://docs.antora.org/antora/latest/playbook/site-keys/
+
+An Antora UI bundle: the {url-upstream}[Antora default UI], vendored and restyled in production green --
+spring green on charcoal, tonal surfaces instead of 1px sectioning borders.
+
+* Dark is the native mode; a navbar toggle switches to light and remembers the choice in `localStorage`.
+* Type: Space Grotesk (display) + Manrope (body) + JetBrains Mono (code), loaded from Google Fonts.
+* Colour, spacing and radii come from `src/css/vars.css`.
+
+== One theme, many sites
+
+"Snowed Under Production Green Theme" names *this bundle*, not the sites built with it. Nothing in the
+rendered output carries that name: the wordmark, top nav and footer are read from the consuming site's
+playbook, so the same bundle serves RepFoundry, DartFlac and anything else without being forked.
+
+Download `ui-bundle.zip`, point a playbook at it, set `site.title` to the project, and the site brands
+itself. See <<Configure the branding>>.
+
+== Build the bundle
+
+[,console]
+----
+$ npm install
+$ npx gulp bundle
+----
+
+The bundle lands at `build/ui-bundle.zip`.
+
+== Point the playbook at it
+
+[,yaml]
+----
+ui:
+  bundle:
+    url: ./ui/build/ui-bundle.zip
+    snapshot: true
+----
+
+== Configure the branding
+
+The brand wordmark is `site.title` -- your project name, not the theme's. Everything else is optional and
+comes from {url-site-keys}[`site.keys`] in the playbook. Antora converts these names to camelCase before
+handing them to the templates, so write them in snake_case here:
+
+[,yaml]
+----
+site:
+  title: RepFoundry
+  keys:
+    brand_suffix: Docs                    # small mono word beside the wordmark
+    home_eyebrow: RepFoundry Docs         # label above the home page title
+    tagline: Offline-first workout tracking.   # first line of the footer
+    repo_url: https://github.com/you/repfoundry  # footer source link
+    nav_links:                            # top navbar
+    - text: User Guide
+      url: /repfoundry/index.html
+    - text: Developer
+      url: /repfoundry/dev/index.html
+    - text: Source
+      url: https://github.com/you/repfoundry
+      external: true
+----
+
+[cols="1,2,2",options="header"]
+|===
+| Key | Effect | If omitted
+
+| `brand_suffix`
+| Small mono word beside the wordmark
+| Not rendered
+
+| `nav_links`
+| Top navbar entries
+| One link per component in the site
+
+| `home_eyebrow`
+| Label above the home page title
+| Falls back to "`Documentation`"
+
+| `tagline`
+| First line of the footer
+| Not rendered
+
+| `repo_url`
+| Footer source link
+| Not rendered
+|===
+
+`nav_links` URLs beginning with `/` are treated as site-root paths and relativised per page; absolute
+URLs are emitted unchanged. Set `external: true` to get the external-link styling.
+
+Antora namespaces pages under the component name, so a site-root path must include it -- `/repfoundry/…`
+above matches a component named `repfoundry` in its `antora.yml`. Rename the component and these links
+break.
+
+== Live preview while editing the UI
+
+[,console]
+----
+$ npx gulp preview
+----
+
+Serves `preview-src/index.adoc` (a kitchen-sink page) at http://localhost:5252 with watch + rebuild.
+`preview-src/ui-model.yml` stands in for the UI model Antora would supply, and sets sample `site.keys`
+so the configurable pieces are exercised.
+
+Other tasks: `npx gulp build` (stage without zipping), `npx gulp clean`, `npx gulp format`,
+`npx gulp --tasks-simple`.
+
+== Where things live
+
+[cols="1,2",options="header"]
+|===
+| Path | What it is
+
+| `src/css/vars.css`
+| All design tokens. Change the palette here and the whole site follows.
+
+| `src/css/doc.css`
+| Article body: headings, admonitions, tables, code, lists.
+
+| `src/css/header.css`
+| Glass navbar, gradient wordmark, theme toggle.
+
+| `src/partials/*.hbs`
+| Page templates (Handlebars). `header-content.hbs` holds the brand and top nav.
+
+| `src/js/07-theme-toggle.js`
+| Dark/light switching. The no-flash pre-paint script lives in `partials/head-prelude.hbs`.
+|===
+
+== Notes on the fork
+
+Two deliberate changes from upstream:
+
+* `gulp.d/tasks/build.js` runs `postcss-custom-properties` with `preserve: true`. Upstream flattens
+  custom properties at build time, which would freeze the site in dark mode.
+* The Roboto `@fontsource` packages are dropped in favour of Google Fonts links in
+  `partials/head-styles.hbs`.
+
+Known rough edges inherited from the fork: `npx gulp lint` fails because upstream's `.eslintrc` and
+`.stylelintrc` were not vendored, and `npm ci` fails on a peer conflict between
+`eslint-config-standard@~16` and `eslint@~8.57`. Use `npm install`.
+
+== Copyright and licence
+
+Copyright (C) 2026-present Paul Snow.
+
+This is a derivative of the {url-upstream}[Antora default UI], copyright (C) 2017-present OpenDevise Inc.
+and the Antora Project.
+
+Use of this software is granted under the terms of the https://www.mozilla.org/en-US/MPL/2.0/[Mozilla
+Public License Version 2.0] (MPL-2.0), the same licence as the upstream project. See link:LICENSE[] for
+the full text and link:NOTICE[] for attribution.

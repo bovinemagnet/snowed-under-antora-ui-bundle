@@ -1,0 +1,11 @@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script>
+      /* Pin the theme before first paint so the page never flashes the wrong mode. */
+      ;(function () {
+        var stored
+        try { stored = window.localStorage.getItem('docs-theme') } catch (e) {}
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+        document.documentElement.setAttribute('data-theme', theme)
+      })()
+    </script>

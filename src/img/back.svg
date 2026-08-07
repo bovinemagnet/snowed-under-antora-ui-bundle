@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="100" height="100" viewBox="0 0 100 100" version="1.1" enable-background="new">
+<title>Left arrow</title>
+<namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" showgrid="false" units="px" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" scale-x="1"></namedview>
+<metadata>
+<RDF>
+<Work>
+<format>image/svg+xml</format>
+<type></type>
+<title>Left arrow</title>
+<creator>
+<Agent>
+<title>Sarah White</title>
+</Agent>
+</creator>
+<publisher>
+<Agent>
+<title>OpenDevise Inc.</title>
+</Agent>
+</publisher>
+<license></license>
+</Work>
+<License>
+<permits></permits>
+<permits></permits>
+<requires></requires>
+<requires></requires>
+<permits></permits>
+<requires></requires>
+</License>
+</RDF>
+</metadata>
+<g transform="translate(-3.926492e-7,-270.54187)">
+<path d="m 50.000978,280.44162 -40.1010516,40.10025 40.1010516,40.10025 5.6556,-5.65551 -30.434757,-30.44194 h 64.878253 v -8.0056 H 25.221821 l 30.434757,-30.44001 z"></path>
+</g>
+</svg>

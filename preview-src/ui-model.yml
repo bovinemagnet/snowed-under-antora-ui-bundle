@@ -1,0 +1,83 @@
+## Stand-in for the UI model Antora supplies at build time. Keys under site.keys
+## are written in camelCase here because that is what Antora produces from the
+## snake_case names used in the playbook (site.keys.nav_links -> site.keys.navLinks).
+antoraVersion: '3.1.0'
+site:
+  url: http://localhost:5252
+  title: Sample Project
+  homeUrl: &home_url /docs/index.html
+  keys:
+    brandSuffix: Docs
+    homeEyebrow: Sample Project Docs
+    tagline: A sample project used to preview this UI.
+    repoUrl: https://example.com/sample-project
+    navLinks:
+    - text: User Guide
+      url: /docs/index.html
+    - text: Developer
+      url: /docs/dev/index.html
+    - text: Source
+      url: https://example.com/sample-project
+      external: true
+  components:
+  - &component
+    name: docs
+    title: &component_title Sample Project
+    url: /docs/index.html
+    versions:
+    - &component_version
+      title: *component_title
+      url: /docs/index.html
+      version: 'HEAD'
+      displayVersion: 'HEAD'
+    latestVersion: *component_version
+page:
+  url: *home_url
+  home: true
+  title: Sample Project Documentation
+  component: *component
+  componentVersion: *component_version
+  version: 'HEAD'
+  displayVersion: 'HEAD'
+  module: ROOT
+  relativeSrcPath: index.adoc
+  editUrl: https://example.com/sample-project/edit/main/docs/modules/ROOT/pages/index.adoc
+  origin:
+    private: false
+  next:
+    content: Getting Started
+    url: '#'
+    urlType: 'internal'
+  breadcrumbs:
+  - content: Sample Project Documentation
+    url: /docs/index.html
+    urlType: internal
+  navigation:
+  - root: true
+    items:
+    - content: Overview
+      url: /docs/index.html
+      urlType: internal
+    - content: Getting Started
+      url: '#'
+      urlType: fragment
+    - content: Architecture
+      url: '#'
+      urlType: fragment
+    - content: Configuration
+      url: '#'
+      urlType: fragment
+    - content: Reference
+      items:
+      - content: Command Line
+        url: '#'
+        urlType: fragment
+      - content: Configuration Keys
+        url: '#'
+        urlType: fragment
+      - content: API
+        url: '#'
+        urlType: fragment
+    - content: Troubleshooting
+      url: '#'
+      urlType: fragment
