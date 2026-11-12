@@ -1,6 +1,6 @@
 {
   "name": "snowed-under-production-green-theme",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Snowed Under Production Green Theme — an Antora UI bundle. The consuming site supplies its own title and nav via site.title and site.keys",
   "author": "Paul Snow",
   "license": "MPL-2.0",

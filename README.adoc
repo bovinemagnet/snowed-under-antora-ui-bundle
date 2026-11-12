@@ -123,6 +123,29 @@ Antora namespaces pages under the component name, so a site-root path must inclu
 above matches a component named `repfoundry` in its `antora.yml`. Rename the component and these links
 break.
 
+== Search
+
+The bundle has a search box in the navbar, but it renders only when the site builds a search index. Register
+the Lunr extension in the playbook:
+
+[,yaml]
+----
+antora:
+  extensions:
+  - require: '@antora/lunr-extension'
+----
+
+`@antora/lunr-extension` sets `SITE_SEARCH_PROVIDER` and supplies the `search-scripts` partial, `search-ui.js`,
+`lunr.js` and its own `css/search.css`. With it registered, a "Search the docs" box appears in the navbar
+before the theme toggle, and takes focus on the home page. There is nothing else to configure.
+
+The box and the results panel are styled in `src/css/search.css` from the `--ui-*` tokens, so they follow the
+light/dark toggle. Every rule is scoped under `.navbar` so it outranks the extension's stylesheet, which loads
+later with fixed light colours. Below 1024px the box fills the burger menu and the results flow inside it,
+which scrolls.
+
+Without the extension nothing changes: no box and no scripts.
+
 == Live preview while editing the UI
 
 [,console]

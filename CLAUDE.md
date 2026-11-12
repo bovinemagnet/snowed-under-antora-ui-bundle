@@ -129,6 +129,16 @@ name, a site-root path must include it (`/docs/…` for a component named `docs`
 CSS cannot read the UI model, which is why the home-page eyebrow goes through a custom property injected
 by `head-styles.hbs` rather than a literal `content:` string.
 
+## Search
+
+`header-content.hbs` renders the search box and `footer-scripts.hbs` includes `{{> search-scripts}}`
+only when `env.SITE_SEARCH_PROVIDER` is set, which `@antora/lunr-extension` does. The extension supplies
+that partial, `search-ui.js`, `lunr.js` and its own `css/search.css`; none of them is in this repository,
+so never reference `search-scripts` outside that condition (the preview, which has no extension, would
+fail to find the partial). The extension's stylesheet loads after `site.css` with fixed light colours,
+so every rule in `src/css/search.css` is scoped under `.navbar` to outrank it and reads `--ui-*` tokens to
+follow the theme. Below 1024px the results are `position: static` inside the scrolling burger menu.
+
 ## Preview harness
 
 `npx gulp preview` renders `preview-src/*.adoc` (a kitchen-sink page plus a 404) through the real layouts,
