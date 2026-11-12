@@ -1,0 +1,125 @@
+/* Search box and results, for @antora/lunr-extension.
+ * The extension loads its own css/search.css after this file, with fixed light
+ * colours. Every rule here is scoped under .navbar so it outranks that file's
+ * selectors and follows the theme toggle through the --ui-* tokens. */
+
+.navbar .search {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.navbar #search-field {
+  display: flex;
+  position: relative;
+}
+
+.navbar #search-input {
+  background: var(--ui-surface-low);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  color: var(--ui-on-surface);
+  font-family: var(--body-font-family);
+  font-size: calc(14 / var(--rem-base) * 1rem);
+  height: 2.25rem;
+  padding: 0 1rem;
+  transition: border-color var(--duration, 200ms) ease, background var(--duration, 200ms) ease;
+  width: 14rem;
+}
+
+.navbar #search-input::placeholder {
+  color: var(--ui-on-surface-variant);
+  opacity: 1;
+}
+
+.navbar #search-input:focus {
+  background: var(--ui-surface-container);
+  border-color: var(--ui-primary);
+  outline: none;
+}
+
+.navbar .search-result-dropdown-menu {
+  border-radius: var(--radius-md);
+  box-shadow: var(--ui-elevation-menu);
+  margin-top: 0.5rem;
+  z-index: var(--z-index-navbar);
+}
+
+.navbar .search-result-dataset {
+  background: var(--ui-surface-container);
+  border: 1px solid var(--ui-line-strong);
+  border-radius: var(--radius-md);
+  color: var(--ui-on-surface);
+  padding: 0.5rem;
+}
+
+.navbar .search-result-component-header {
+  border-bottom: 1px solid var(--ui-line-strong);
+  color: var(--ui-on-surface-variant);
+  font-family: var(--label-font-family);
+  font-size: calc(12 / var(--rem-base) * 1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.navbar .search-result-document-title {
+  border-right: 1px solid var(--ui-line-strong);
+  color: var(--ui-on-surface);
+  font-family: var(--display-font-family);
+  font-weight: 600;
+}
+
+.navbar .search-result-document-hit {
+  color: var(--ui-on-surface-variant);
+}
+
+.navbar .search-result-document-hit > a {
+  border-radius: var(--radius-sm);
+}
+
+.navbar .search-result-document-hit > a:hover,
+.navbar .search-result-document-hit > a:focus {
+  background-color: var(--ui-surface-high);
+  outline: none;
+}
+
+.navbar .search-result-document-hit .search-result-section-title {
+  color: var(--ui-on-surface);
+}
+
+.navbar .search-result-document-hit .search-result-highlight {
+  background: var(--ui-accent-soft);
+  border-radius: var(--radius-xs);
+  color: var(--ui-primary);
+}
+
+@media screen and (max-width: 1023.5px) {
+  .navbar .search {
+    padding: 0.5rem 1rem;
+    width: 100%;
+  }
+
+  .navbar #search-field,
+  .navbar #search-input {
+    width: 100%;
+  }
+
+  .navbar #search-field {
+    flex-direction: column;
+  }
+
+  /* The menu scrolls, so the results join its flow rather than overflow it. */
+  .navbar .search-result-dropdown-menu {
+    box-shadow: none;
+    max-width: none;
+    min-width: 0;
+    position: static;
+  }
+
+  .navbar .search-result-dataset {
+    max-height: none;
+  }
+
+  .navbar .search-result-document-title {
+    width: 40%;
+  }
+}

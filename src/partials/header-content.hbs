@@ -25,6 +25,16 @@
         <a class="navbar-item" href="{{{relativize ./url}}}">{{./title}}</a>
         {{/each}}
         {{/if}}
+        {{!-- The search box appears only when a search extension (such as
+              @antora/lunr-extension) sets env.SITE_SEARCH_PROVIDER; that
+              extension also supplies the search-scripts partial. --}}
+        {{#if env.SITE_SEARCH_PROVIDER}}
+        <div class="navbar-item search hide-for-print">
+          <div id="search-field" class="field">
+            <input id="search-input" type="search" placeholder="Search the docs" aria-label="Search the docs" autocomplete="off"{{#if page.home}} autofocus{{/if}}>
+          </div>
+        </div>
+        {{/if}}
         <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle light and dark theme">
           <span class="icon icon-dark">dark_mode</span>
           <span class="icon icon-light">light_mode</span>
